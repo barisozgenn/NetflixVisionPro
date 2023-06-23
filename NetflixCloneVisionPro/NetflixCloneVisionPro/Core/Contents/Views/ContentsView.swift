@@ -14,7 +14,9 @@ struct ContentsView: View {
 
     var body: some View {
         ZStack{
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            ScrollView(.vertical) {
+                ContentHeaderVideoPlayer()
+            }
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -22,7 +24,7 @@ struct ContentsView: View {
             RoundedRectangle(cornerSize: CGSize(width: 14, height: 14))
                 .fill(.thinMaterial)
         })
-        .clipped()
+        .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 14)))
         .padding(.leading, 258)
         .padding(.top, 72)
         .scaleEffect(y: scale)

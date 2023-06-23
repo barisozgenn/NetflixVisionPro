@@ -26,6 +26,7 @@ struct MenuBarItemView: View {
                 .fontWeight( .bold)
                 .font(.system(size: 25))
         })
+        .hoverEffect()
         .padding(.vertical,7)
         .offset(x: offsetX)
         .opacity(opacity)
