@@ -5,9 +5,11 @@
     upAxis = "Y"
 )
 
+reorder rootPrims = ["Root", "_GridMaterial"]
+
 def Xform "Root"
 {
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "_PlainMaterial"]
+    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "_GridMaterial", "_PlainMaterial"]
     def Sphere "Sphere_Right" (
         active = true
         prepend apiSchemas = ["MaterialBindingAPI"]

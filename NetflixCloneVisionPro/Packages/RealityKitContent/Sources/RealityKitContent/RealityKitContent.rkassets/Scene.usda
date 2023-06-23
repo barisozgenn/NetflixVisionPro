@@ -5,6 +5,8 @@
     upAxis = "Y"
 )
 
+reorder rootPrims = ["Root", "GridMaterial"]
+
 def Xform "Root"
 {
     reorder nameChildren = ["Sphere", "_GridMaterial", "_PlainMaterial"]
@@ -17,13 +19,14 @@ def Xform "Root"
         prepend apiSchemas = ["MaterialBindingAPI"]
     )
     {
+        reorder nameChildren = ["Collider", "InputTarget", "GridMaterial"]
         rel material:binding = </Root/_PlainMaterial/Material> (
             bindMaterialAs = "weakerThanDescendants"
         )
-        double radius = 0.05
+        double radius = 0.1
         quatf xformOp:orient = (1, 0, 0, 0)
         float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (0, 0, 0.0004)
+        float3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         def RealityKitComponent "Collider"
@@ -36,7 +39,7 @@ def Xform "Root"
             def RealityKitStruct "Shape"
             {
                 float3 extent = (0.2, 0.2, 0.2)
-                float radius = 0.05
+                float radius = 0.1
                 token shapeType = "Sphere"
             }
         }

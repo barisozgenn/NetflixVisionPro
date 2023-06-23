@@ -7,225 +7,214 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AFC6C5822A44D95000892BAC /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = AFC6C5812A44D95000892BAC /* RealityKitContent */; };
-		AFC6C5842A44D95000892BAC /* NetflixVisionProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC6C5832A44D95000892BAC /* NetflixVisionProApp.swift */; };
-		AFC6C5862A44D95000892BAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC6C5852A44D95000892BAC /* ContentView.swift */; };
-		AFC6C5882A44D95000892BAC /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC6C5872A44D95000892BAC /* ImmersiveView.swift */; };
-		AFC6C58A2A44D95100892BAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFC6C5892A44D95100892BAC /* Assets.xcassets */; };
-		AFC6C58D2A44D95200892BAC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFC6C58C2A44D95200892BAC /* Preview Assets.xcassets */; };
-		AFC6C59D2A44E06E00892BAC /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC6C59C2A44E06E00892BAC /* MenuView.swift */; };
-		AFC6C5A22A44E2D000892BAC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC6C5A12A44E2CF00892BAC /* HomeView.swift */; };
-		AFC6C5A42A44E4FD00892BAC /* EMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC6C5A32A44E4FD00892BAC /* EMenu.swift */; };
+		AF5B34002A458B4B001B68F6 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = AF5B33FF2A458B4B001B68F6 /* RealityKitContent */; };
+		AF5B34022A458B4B001B68F6 /* NetflixCloneVisionProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34012A458B4B001B68F6 /* NetflixCloneVisionProApp.swift */; };
+		AF5B34062A458B4B001B68F6 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34052A458B4B001B68F6 /* ImmersiveView.swift */; };
+		AF5B34082A458B4D001B68F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5B34072A458B4D001B68F6 /* Assets.xcassets */; };
+		AF5B340B2A458B4D001B68F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5B340A2A458B4D001B68F6 /* Preview Assets.xcassets */; };
+		AF5B34222A4590AD001B68F6 /* EMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34212A4590AD001B68F6 /* EMenu.swift */; };
+		AF5B34242A45919E001B68F6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34232A45919E001B68F6 /* HomeView.swift */; };
+		AF5B34262A4591B2001B68F6 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34252A4591B2001B68F6 /* MenuView.swift */; };
+		AF5B34282A4591CF001B68F6 /* MenuBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34272A4591CF001B68F6 /* MenuBarItemView.swift */; };
+		AF5B342C2A459A8B001B68F6 /* TrailingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B342B2A459A8B001B68F6 /* TrailingMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AFC6C57C2A44D95000892BAC /* NetflixVisionPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixVisionPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFC6C5802A44D95000892BAC /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
-		AFC6C5832A44D95000892BAC /* NetflixVisionProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixVisionProApp.swift; sourceTree = "<group>"; };
-		AFC6C5852A44D95000892BAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		AFC6C5872A44D95000892BAC /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
-		AFC6C5892A44D95100892BAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AFC6C58C2A44D95200892BAC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AFC6C59C2A44E06E00892BAC /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		AFC6C5A12A44E2CF00892BAC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		AFC6C5A32A44E4FD00892BAC /* EMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMenu.swift; sourceTree = "<group>"; };
+		AF5B33FA2A458B4B001B68F6 /* NetflixCloneVisionPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixCloneVisionPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF5B33FE2A458B4B001B68F6 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
+		AF5B34012A458B4B001B68F6 /* NetflixCloneVisionProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixCloneVisionProApp.swift; sourceTree = "<group>"; };
+		AF5B34052A458B4B001B68F6 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		AF5B34072A458B4D001B68F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF5B340A2A458B4D001B68F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AF5B340C2A458B4D001B68F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF5B34212A4590AD001B68F6 /* EMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMenu.swift; sourceTree = "<group>"; };
+		AF5B34232A45919E001B68F6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AF5B34252A4591B2001B68F6 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		AF5B34272A4591CF001B68F6 /* MenuBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarItemView.swift; sourceTree = "<group>"; };
+		AF5B342B2A459A8B001B68F6 /* TrailingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AFC6C5792A44D95000892BAC /* Frameworks */ = {
+		AF5B33F72A458B4B001B68F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFC6C5822A44D95000892BAC /* RealityKitContent in Frameworks */,
+				AF5B34002A458B4B001B68F6 /* RealityKitContent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AFC6C5732A44D95000892BAC = {
+		AF5B33F12A458B4B001B68F6 = {
 			isa = PBXGroup;
 			children = (
-				AFC6C57E2A44D95000892BAC /* NetflixVisionPro */,
-				AFC6C57F2A44D95000892BAC /* Packages */,
-				AFC6C57D2A44D95000892BAC /* Products */,
+				AF5B33FC2A458B4B001B68F6 /* NetflixCloneVisionPro */,
+				AF5B33FD2A458B4B001B68F6 /* Packages */,
+				AF5B33FB2A458B4B001B68F6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		AFC6C57D2A44D95000892BAC /* Products */ = {
+		AF5B33FB2A458B4B001B68F6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AFC6C57C2A44D95000892BAC /* NetflixVisionPro.app */,
+				AF5B33FA2A458B4B001B68F6 /* NetflixCloneVisionPro.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AFC6C57E2A44D95000892BAC /* NetflixVisionPro */ = {
+		AF5B33FC2A458B4B001B68F6 /* NetflixCloneVisionPro */ = {
 			isa = PBXGroup;
 			children = (
-				AFC6C5982A44DBC500892BAC /* App */,
-				AFC6C5952A44DB7000892BAC /* Core */,
-				AFC6C5962A44DB8100892BAC /* Extensions */,
-				AFC6C5942A44DB6C00892BAC /* Model */,
-				AFC6C5972A44DB9700892BAC /* Network */,
-				AFC6C58B2A44D95200892BAC /* Preview Content */,
-				AFC6C5932A44DB6400892BAC /* Resources */,
+				AF5B34122A458C0C001B68F6 /* App */,
+				AF5B34132A458F44001B68F6 /* Core */,
+				AF5B34152A458F4E001B68F6 /* Extension */,
+				AF5B34052A458B4B001B68F6 /* ImmersiveView.swift */,
+				AF5B340C2A458B4D001B68F6 /* Info.plist */,
+				AF5B34142A458F4A001B68F6 /* Model */,
+				AF5B34162A458F6A001B68F6 /* Network */,
+				AF5B34092A458B4D001B68F6 /* Preview Content */,
 			);
-			path = NetflixVisionPro;
+			path = NetflixCloneVisionPro;
 			sourceTree = "<group>";
 		};
-		AFC6C57F2A44D95000892BAC /* Packages */ = {
+		AF5B33FD2A458B4B001B68F6 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				AFC6C5802A44D95000892BAC /* RealityKitContent */,
+				AF5B33FE2A458B4B001B68F6 /* RealityKitContent */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
 		};
-		AFC6C58B2A44D95200892BAC /* Preview Content */ = {
+		AF5B34092A458B4D001B68F6 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				AFC6C58C2A44D95200892BAC /* Preview Assets.xcassets */,
+				AF5B340A2A458B4D001B68F6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AFC6C5932A44DB6400892BAC /* Resources */ = {
+		AF5B34122A458C0C001B68F6 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				AFC6C5892A44D95100892BAC /* Assets.xcassets */,
+				AF5B34072A458B4D001B68F6 /* Assets.xcassets */,
+				AF5B34012A458B4B001B68F6 /* NetflixCloneVisionProApp.swift */,
 			);
-			path = Resources;
+			path = App;
 			sourceTree = "<group>";
 		};
-		AFC6C5942A44DB6C00892BAC /* Model */ = {
+		AF5B34132A458F44001B68F6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				AFC6C5A32A44E4FD00892BAC /* EMenu.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		AFC6C5952A44DB7000892BAC /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				AFC6C59E2A44E2B000892BAC /* Home */,
-				AFC6C5992A44E00900892BAC /* Menu */,
+				AF5B34172A458F79001B68F6 /* Home */,
+				AF5B341A2A459025001B68F6 /* Menu */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		AFC6C5962A44DB8100892BAC /* Extensions */ = {
+		AF5B34142A458F4A001B68F6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF5B34212A4590AD001B68F6 /* EMenu.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AF5B34152A458F4E001B68F6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Extensions;
+			path = Extension;
 			sourceTree = "<group>";
 		};
-		AFC6C5972A44DB9700892BAC /* Network */ = {
+		AF5B34162A458F6A001B68F6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		AFC6C5982A44DBC500892BAC /* App */ = {
+		AF5B34172A458F79001B68F6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				AFC6C5832A44D95000892BAC /* NetflixVisionProApp.swift */,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
-		AFC6C5992A44E00900892BAC /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				AFC6C59B2A44E01100892BAC /* ViewModel */,
-				AFC6C59A2A44E00D00892BAC /* Views */,
-			);
-			path = Menu;
-			sourceTree = "<group>";
-		};
-		AFC6C59A2A44E00D00892BAC /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				AFC6C59C2A44E06E00892BAC /* MenuView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		AFC6C59B2A44E01100892BAC /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		AFC6C59E2A44E2B000892BAC /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				AFC6C5A02A44E2BD00892BAC /* ViewModel */,
-				AFC6C59F2A44E2B800892BAC /* Views */,
+				AF5B34192A458F81001B68F6 /* ViewModel */,
+				AF5B34182A458F7C001B68F6 /* Views */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		AFC6C59F2A44E2B800892BAC /* Views */ = {
+		AF5B34182A458F7C001B68F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AFC6C5872A44D95000892BAC /* ImmersiveView.swift */,
-				AFC6C5852A44D95000892BAC /* ContentView.swift */,
-				AFC6C5A12A44E2CF00892BAC /* HomeView.swift */,
+				AF5B34232A45919E001B68F6 /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		AFC6C5A02A44E2BD00892BAC /* ViewModel */ = {
+		AF5B34192A458F81001B68F6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF5B341A2A459025001B68F6 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				AF5B341B2A459028001B68F6 /* Views */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		AF5B341B2A459028001B68F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF5B34252A4591B2001B68F6 /* MenuView.swift */,
+				AF5B34272A4591CF001B68F6 /* MenuBarItemView.swift */,
+				AF5B342B2A459A8B001B68F6 /* TrailingMenuView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AFC6C57B2A44D95000892BAC /* NetflixVisionPro */ = {
+		AF5B33F92A458B4B001B68F6 /* NetflixCloneVisionPro */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AFC6C5902A44D95200892BAC /* Build configuration list for PBXNativeTarget "NetflixVisionPro" */;
+			buildConfigurationList = AF5B340F2A458B4D001B68F6 /* Build configuration list for PBXNativeTarget "NetflixCloneVisionPro" */;
 			buildPhases = (
-				AFC6C5782A44D95000892BAC /* Sources */,
-				AFC6C5792A44D95000892BAC /* Frameworks */,
-				AFC6C57A2A44D95000892BAC /* Resources */,
+				AF5B33F62A458B4B001B68F6 /* Sources */,
+				AF5B33F72A458B4B001B68F6 /* Frameworks */,
+				AF5B33F82A458B4B001B68F6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = NetflixVisionPro;
+			name = NetflixCloneVisionPro;
 			packageProductDependencies = (
-				AFC6C5812A44D95000892BAC /* RealityKitContent */,
+				AF5B33FF2A458B4B001B68F6 /* RealityKitContent */,
 			);
-			productName = NetflixVisionPro;
-			productReference = AFC6C57C2A44D95000892BAC /* NetflixVisionPro.app */;
+			productName = NetflixCloneVisionPro;
+			productReference = AF5B33FA2A458B4B001B68F6 /* NetflixCloneVisionPro.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AFC6C5742A44D95000892BAC /* Project object */ = {
+		AF5B33F22A458B4B001B68F6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					AFC6C57B2A44D95000892BAC = {
+					AF5B33F92A458B4B001B68F6 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = AFC6C5772A44D95000892BAC /* Build configuration list for PBXProject "NetflixVisionPro" */;
+			buildConfigurationList = AF5B33F52A458B4B001B68F6 /* Build configuration list for PBXProject "NetflixCloneVisionPro" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -233,46 +222,47 @@
 				en,
 				Base,
 			);
-			mainGroup = AFC6C5732A44D95000892BAC;
-			productRefGroup = AFC6C57D2A44D95000892BAC /* Products */;
+			mainGroup = AF5B33F12A458B4B001B68F6;
+			productRefGroup = AF5B33FB2A458B4B001B68F6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AFC6C57B2A44D95000892BAC /* NetflixVisionPro */,
+				AF5B33F92A458B4B001B68F6 /* NetflixCloneVisionPro */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AFC6C57A2A44D95000892BAC /* Resources */ = {
+		AF5B33F82A458B4B001B68F6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFC6C58D2A44D95200892BAC /* Preview Assets.xcassets in Resources */,
-				AFC6C58A2A44D95100892BAC /* Assets.xcassets in Resources */,
+				AF5B340B2A458B4D001B68F6 /* Preview Assets.xcassets in Resources */,
+				AF5B34082A458B4D001B68F6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AFC6C5782A44D95000892BAC /* Sources */ = {
+		AF5B33F62A458B4B001B68F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFC6C5862A44D95000892BAC /* ContentView.swift in Sources */,
-				AFC6C5842A44D95000892BAC /* NetflixVisionProApp.swift in Sources */,
-				AFC6C5A42A44E4FD00892BAC /* EMenu.swift in Sources */,
-				AFC6C59D2A44E06E00892BAC /* MenuView.swift in Sources */,
-				AFC6C5A22A44E2D000892BAC /* HomeView.swift in Sources */,
-				AFC6C5882A44D95000892BAC /* ImmersiveView.swift in Sources */,
+				AF5B34222A4590AD001B68F6 /* EMenu.swift in Sources */,
+				AF5B34262A4591B2001B68F6 /* MenuView.swift in Sources */,
+				AF5B34282A4591CF001B68F6 /* MenuBarItemView.swift in Sources */,
+				AF5B34022A458B4B001B68F6 /* NetflixCloneVisionProApp.swift in Sources */,
+				AF5B34242A45919E001B68F6 /* HomeView.swift in Sources */,
+				AF5B342C2A459A8B001B68F6 /* TrailingMenuView.swift in Sources */,
+				AF5B34062A458B4B001B68F6 /* ImmersiveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		AFC6C58E2A44D95200892BAC /* Debug */ = {
+		AF5B340D2A458B4D001B68F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -335,7 +325,7 @@
 			};
 			name = Debug;
 		};
-		AFC6C58F2A44D95200892BAC /* Release */ = {
+		AF5B340E2A458B4D001B68F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -391,7 +381,7 @@
 			};
 			name = Release;
 		};
-		AFC6C5912A44D95200892BAC /* Debug */ = {
+		AF5B34102A458B4D001B68F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -399,10 +389,11 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NetflixVisionPro/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NetflixCloneVisionPro/Preview Content\"";
 				DEVELOPMENT_TEAM = SHP38F3EM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NetflixCloneVisionPro/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Netflix;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -410,7 +401,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = barisozgen.NetflixVisionPro;
+				PRODUCT_BUNDLE_IDENTIFIER = barisozgen.NetflixCloneVisionPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -419,7 +410,7 @@
 			};
 			name = Debug;
 		};
-		AFC6C5922A44D95200892BAC /* Release */ = {
+		AF5B34112A458B4D001B68F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -427,10 +418,11 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NetflixVisionPro/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NetflixCloneVisionPro/Preview Content\"";
 				DEVELOPMENT_TEAM = SHP38F3EM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NetflixCloneVisionPro/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Netflix;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -438,7 +430,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = barisozgen.NetflixVisionPro;
+				PRODUCT_BUNDLE_IDENTIFIER = barisozgen.NetflixCloneVisionPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -450,20 +442,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AFC6C5772A44D95000892BAC /* Build configuration list for PBXProject "NetflixVisionPro" */ = {
+		AF5B33F52A458B4B001B68F6 /* Build configuration list for PBXProject "NetflixCloneVisionPro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AFC6C58E2A44D95200892BAC /* Debug */,
-				AFC6C58F2A44D95200892BAC /* Release */,
+				AF5B340D2A458B4D001B68F6 /* Debug */,
+				AF5B340E2A458B4D001B68F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AFC6C5902A44D95200892BAC /* Build configuration list for PBXNativeTarget "NetflixVisionPro" */ = {
+		AF5B340F2A458B4D001B68F6 /* Build configuration list for PBXNativeTarget "NetflixCloneVisionPro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AFC6C5912A44D95200892BAC /* Debug */,
-				AFC6C5922A44D95200892BAC /* Release */,
+				AF5B34102A458B4D001B68F6 /* Debug */,
+				AF5B34112A458B4D001B68F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -471,11 +463,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AFC6C5812A44D95000892BAC /* RealityKitContent */ = {
+		AF5B33FF2A458B4B001B68F6 /* RealityKitContent */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitContent;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = AFC6C5742A44D95000892BAC /* Project object */;
+	rootObject = AF5B33F22A458B4B001B68F6 /* Project object */;
 }

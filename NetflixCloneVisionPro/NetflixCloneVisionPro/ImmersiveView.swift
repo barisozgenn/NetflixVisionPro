@@ -1,8 +1,8 @@
 //
 //  ImmersiveView.swift
-//  NetflixVisionPro
+//  NetflixCloneVisionPro
 //
-//  Created by Baris OZGEN on 22.06.2023.
+//  Created by Baris OZGEN on 23.06.2023.
 //
 
 import SwiftUI
@@ -15,7 +15,6 @@ struct ImmersiveView: View {
             // Add the initial RealityKit content
             if let scene = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
                 content.add(scene)
-                
             }
         }
     }
