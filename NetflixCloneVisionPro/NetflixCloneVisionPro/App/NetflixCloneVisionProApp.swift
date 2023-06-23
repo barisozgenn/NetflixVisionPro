@@ -15,7 +15,7 @@ struct NetflixCloneVisionProApp: App {
         }.windowStyle(.volumetric)
 
         ImmersiveSpace(id: "ImmersiveSpace") {
-            ImmersiveView()
+            //ImmersiveView()
         }
     }
 }

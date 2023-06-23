@@ -14,11 +14,11 @@ struct HomeView: View {
     @State var searchText: String = ""
     var body: some View {
         ZStack(alignment: .top){
+            ContentsView()
             HStack(alignment: .top){
                 MenuView(selectedMenu: $selectedMenu)
                 TrailingMenuView(searchText: $searchText)
             }
-            
         }
     }
 }

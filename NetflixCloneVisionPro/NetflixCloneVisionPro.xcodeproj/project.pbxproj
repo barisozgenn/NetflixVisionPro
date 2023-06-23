@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		AF5B34002A458B4B001B68F6 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = AF5B33FF2A458B4B001B68F6 /* RealityKitContent */; };
 		AF5B34022A458B4B001B68F6 /* NetflixCloneVisionProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34012A458B4B001B68F6 /* NetflixCloneVisionProApp.swift */; };
-		AF5B34062A458B4B001B68F6 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34052A458B4B001B68F6 /* ImmersiveView.swift */; };
 		AF5B34082A458B4D001B68F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5B34072A458B4D001B68F6 /* Assets.xcassets */; };
 		AF5B340B2A458B4D001B68F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5B340A2A458B4D001B68F6 /* Preview Assets.xcassets */; };
 		AF5B34222A4590AD001B68F6 /* EMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34212A4590AD001B68F6 /* EMenu.swift */; };
@@ -17,13 +16,13 @@
 		AF5B34262A4591B2001B68F6 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34252A4591B2001B68F6 /* MenuView.swift */; };
 		AF5B34282A4591CF001B68F6 /* MenuBarItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34272A4591CF001B68F6 /* MenuBarItemView.swift */; };
 		AF5B342C2A459A8B001B68F6 /* TrailingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B342B2A459A8B001B68F6 /* TrailingMenuView.swift */; };
+		AF5B34312A45D1B6001B68F6 /* ContentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34302A45D1B6001B68F6 /* ContentsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AF5B33FA2A458B4B001B68F6 /* NetflixCloneVisionPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixCloneVisionPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5B33FE2A458B4B001B68F6 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		AF5B34012A458B4B001B68F6 /* NetflixCloneVisionProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixCloneVisionProApp.swift; sourceTree = "<group>"; };
-		AF5B34052A458B4B001B68F6 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
 		AF5B34072A458B4D001B68F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF5B340A2A458B4D001B68F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AF5B340C2A458B4D001B68F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,6 +31,7 @@
 		AF5B34252A4591B2001B68F6 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		AF5B34272A4591CF001B68F6 /* MenuBarItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarItemView.swift; sourceTree = "<group>"; };
 		AF5B342B2A459A8B001B68F6 /* TrailingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingMenuView.swift; sourceTree = "<group>"; };
+		AF5B34302A45D1B6001B68F6 /* ContentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,6 @@
 				AF5B34122A458C0C001B68F6 /* App */,
 				AF5B34132A458F44001B68F6 /* Core */,
 				AF5B34152A458F4E001B68F6 /* Extension */,
-				AF5B34052A458B4B001B68F6 /* ImmersiveView.swift */,
 				AF5B340C2A458B4D001B68F6 /* Info.plist */,
 				AF5B34142A458F4A001B68F6 /* Model */,
 				AF5B34162A458F6A001B68F6 /* Network */,
@@ -106,6 +105,7 @@
 		AF5B34132A458F44001B68F6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				AF5B342D2A45D18D001B68F6 /* Contents */,
 				AF5B34172A458F79001B68F6 /* Home */,
 				AF5B341A2A459025001B68F6 /* Menu */,
 			);
@@ -174,6 +174,30 @@
 				AF5B342B2A459A8B001B68F6 /* TrailingMenuView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AF5B342D2A45D18D001B68F6 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				AF5B342F2A45D1A5001B68F6 /* ViewModel */,
+				AF5B342E2A45D1A1001B68F6 /* Views */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
+		AF5B342E2A45D1A1001B68F6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF5B34302A45D1B6001B68F6 /* ContentsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AF5B342F2A45D1A5001B68F6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,13 +273,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF5B34312A45D1B6001B68F6 /* ContentsView.swift in Sources */,
 				AF5B34222A4590AD001B68F6 /* EMenu.swift in Sources */,
 				AF5B34262A4591B2001B68F6 /* MenuView.swift in Sources */,
 				AF5B34282A4591CF001B68F6 /* MenuBarItemView.swift in Sources */,
 				AF5B34022A458B4B001B68F6 /* NetflixCloneVisionProApp.swift in Sources */,
 				AF5B34242A45919E001B68F6 /* HomeView.swift in Sources */,
 				AF5B342C2A459A8B001B68F6 /* TrailingMenuView.swift in Sources */,
-				AF5B34062A458B4B001B68F6 /* ImmersiveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

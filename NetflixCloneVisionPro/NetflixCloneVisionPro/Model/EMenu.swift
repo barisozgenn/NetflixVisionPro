@@ -27,7 +27,7 @@ enum EMenu: Int, CaseIterable, Identifiable {
         case .myList:
             return "My List"
         case .browseByLanguages:
-            return "Browse By Languages"
+            return "Browse By ..."
         }
     }
 }
