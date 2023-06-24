@@ -15,6 +15,9 @@ struct ContentsView: View {
     
     @State private var selectionListId: Int = 0
     
+    // You can create seperated view model I did not want to do that
+    private let contentModel = ContentAPI()
+    
     var body: some View {
         ZStack{
             ScrollView(.vertical) {
@@ -27,7 +30,8 @@ struct ContentsView: View {
                         ContentListView(
                             selectionListId: $selectionListId,
                             listId: index,
-                            animationDelay: 5.297 + Double(index) * 0.729
+                            animationDelay: 5.297 + Double(index) * 0.729,
+                            contents: contentModel.contents.shuffled()
                         )
                         .padding(.vertical, -75)
                     }
