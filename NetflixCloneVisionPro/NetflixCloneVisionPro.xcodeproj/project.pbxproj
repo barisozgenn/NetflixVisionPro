@@ -11,6 +11,8 @@
 		AF0E39222A46096B00ADFF6F /* PlayerViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E39212A46096B00ADFF6F /* PlayerViewRepresentable.swift */; };
 		AF0E39252A46154700ADFF6F /* netflix-intro-for-movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AF0E39232A46154700ADFF6F /* netflix-intro-for-movie.mp4 */; };
 		AF0E392D2A462C3F00ADFF6F /* example-video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AF0E392C2A462C3F00ADFF6F /* example-video.mp4 */; };
+		AF132F4E2A46E07F00FB7545 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF132F4D2A46E07F00FB7545 /* PlayerViewModel.swift */; };
+		AF132F502A46E32500FB7545 /* MainPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF132F4F2A46E32500FB7545 /* MainPlayerView.swift */; };
 		AF5B34002A458B4B001B68F6 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = AF5B33FF2A458B4B001B68F6 /* RealityKitContent */; };
 		AF5B34022A458B4B001B68F6 /* NetflixCloneVisionProApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B34012A458B4B001B68F6 /* NetflixCloneVisionProApp.swift */; };
 		AF5B34082A458B4D001B68F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5B34072A458B4D001B68F6 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		AF0E39212A46096B00ADFF6F /* PlayerViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewRepresentable.swift; sourceTree = "<group>"; };
 		AF0E39232A46154700ADFF6F /* netflix-intro-for-movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "netflix-intro-for-movie.mp4"; sourceTree = "<group>"; };
 		AF0E392C2A462C3F00ADFF6F /* example-video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "example-video.mp4"; sourceTree = "<group>"; };
+		AF132F4D2A46E07F00FB7545 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		AF132F4F2A46E32500FB7545 /* MainPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPlayerView.swift; sourceTree = "<group>"; };
 		AF5B33FA2A458B4B001B68F6 /* NetflixCloneVisionPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixCloneVisionPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5B33FE2A458B4B001B68F6 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		AF5B34012A458B4B001B68F6 /* NetflixCloneVisionProApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixCloneVisionProApp.swift; sourceTree = "<group>"; };
@@ -57,6 +61,7 @@
 		AF0E391D2A4608F000ADFF6F /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				AF132F4C2A46E06500FB7545 /* ViewModel */,
 				AF0E391E2A4608F900ADFF6F /* Views */,
 			);
 			path = VideoPlayer;
@@ -67,6 +72,7 @@
 			children = (
 				AF0E391F2A46090900ADFF6F /* ContentHeaderVideoPlayer.swift */,
 				AF0E39212A46096B00ADFF6F /* PlayerViewRepresentable.swift */,
+				AF132F4F2A46E32500FB7545 /* MainPlayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -78,6 +84,14 @@
 				AF0E39232A46154700ADFF6F /* netflix-intro-for-movie.mp4 */,
 			);
 			path = videos;
+			sourceTree = "<group>";
+		};
+		AF132F4C2A46E06500FB7545 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF132F4D2A46E07F00FB7545 /* PlayerViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		AF5B33F12A458B4B001B68F6 = {
@@ -312,6 +326,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF5B34312A45D1B6001B68F6 /* ContentsView.swift in Sources */,
+				AF132F502A46E32500FB7545 /* MainPlayerView.swift in Sources */,
+				AF132F4E2A46E07F00FB7545 /* PlayerViewModel.swift in Sources */,
 				AF0E39222A46096B00ADFF6F /* PlayerViewRepresentable.swift in Sources */,
 				AF0E39202A46090900ADFF6F /* ContentHeaderVideoPlayer.swift in Sources */,
 				AF5B34222A4590AD001B68F6 /* EMenu.swift in Sources */,
