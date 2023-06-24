@@ -19,8 +19,8 @@ struct ContentsView: View {
                 ContentHeaderVideoPlayer()
                 linearGradient
                 VStack(alignment: .leading){
-                    ForEach(contentTitles, id: \.self){title in
-                        ListTitleView(title: title)
+                    ForEach(Array(contentTitles.enumerated()), id: \.offset){ index, title in
+                        ListTitleView(title: title, animationDelay: .constant(3.729 + Double(index) * 0.29))
                     }
                 }
             }

@@ -10,7 +10,12 @@ import SwiftUI
 struct ListTitleView: View {
     @State var isListHover: Bool = false
     @State private var isHeaderHover: Bool = false
-    var title: String = "List Title"
+    @State private var offsetY = -14.0
+    @State private var opacity: Double = 0.0
+    
+    let title: String
+    @Binding var animationDelay: Double
+        
     var body: some View {
         VStack(alignment: .leading, content: {
             HStack(alignment: .bottom, spacing: 0){
@@ -44,11 +49,19 @@ struct ListTitleView: View {
                 }
             }
         })
+        .offset(y: offsetY)
+        .opacity(opacity)
+        .onAppear{
+            withAnimation(.smooth.delay(animationDelay)){
+                offsetY = 0
+                opacity = 1
+            }
+        }
     }
 }
 
 #Preview {
-    ListTitleView()
+    ListTitleView(title: "List Title",animationDelay: .constant(0))
 }
 
 
