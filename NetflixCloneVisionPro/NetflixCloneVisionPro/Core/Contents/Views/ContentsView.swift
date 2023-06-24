@@ -12,7 +12,9 @@ struct ContentsView: View {
     @State private var offsetY = 329.0
     @State private var offsetX = 329.0
     private let contentTitles: [String] = ["Trending Now","Top Picks For You", "Only on Netflix","Watch In One Weekend"]
-
+    
+    @State private var selectionListId: Int = 0
+    
     var body: some View {
         ZStack{
             ScrollView(.vertical) {
@@ -21,6 +23,13 @@ struct ContentsView: View {
                 VStack(alignment: .leading){
                     ForEach(Array(contentTitles.enumerated()), id: \.offset){ index, title in
                         ListTitleView(title: title, animationDelay: .constant(3.729 + Double(index) * 0.29))
+                            .offset(z: 1)
+                        ContentListView(
+                            selectionListId: $selectionListId,
+                            listId: index,
+                            animationDelay: 5.297 + Double(index) * 0.729
+                        )
+                        .padding(.vertical, -75)
                     }
                 }
             }
