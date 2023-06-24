@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct NetflixCloneVisionProApp: App {
+   
     var body: some Scene {
         WindowGroup {
             HomeView()
-        }.windowStyle(.volumetric)
-
+        }
+        .windowStyle(.volumetric)
+        
         ImmersiveSpace(id: "ImmersiveSpace") {
             //ImmersiveView()
         }

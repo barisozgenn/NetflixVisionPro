@@ -104,8 +104,8 @@ struct ContentHeaderVideoPlayer: View {
                         //openWindow(id: "player-window")
                     }
                     .sheet(isPresented: $isHeaderVideoSelected) {
-                        /*PlayerView()
-                            .presentationDragIndicator(.visible)*/
+                        MainPlayerView()
+                            .presentationDragIndicator(.visible)
                     }
                     .hoverEffect(.lift)
                     
@@ -163,8 +163,9 @@ struct ContentHeaderVideoPlayer: View {
             .foregroundStyle(.white)
         }
         .padding(.horizontal)
-        .padding(.top, 129)
+        .padding(.top, isFocused ? 129 : 158)
     }
+    
 }
 
 
