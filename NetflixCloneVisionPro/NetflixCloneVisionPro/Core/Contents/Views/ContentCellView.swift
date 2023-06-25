@@ -31,6 +31,7 @@ struct ContentCellView: View {
                 selectionListId = listId
                 if selectedItem == itemId {
                     selectedItem = -1
+                    selectionListId = -1
                     backgroundOpacity = 0
                 }else {
                     selectedItem = itemId
@@ -62,6 +63,7 @@ struct ContentCellView: View {
             .opacity(scale)
             .clipShape(RoundedRectangle(cornerRadius: 14))
             .hoverEffect(.lift)
+            .saturation(selectionListId == -1 ? 1 : selectedItem == itemId ? 1 : 0)
         })
         .buttonStyle(.plain)
         .onAppear{

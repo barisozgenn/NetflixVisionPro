@@ -14,7 +14,7 @@ struct HomeView: View {
     @State private var selectedMenu: EMenu = .home
     @State private var searchText: String = ""
     @State private var selectedContent: SelectedContent? = nil
-    
+    @State private var selectionListId: Int = -1
     @State private var eScene: EScene = .contentsHome
     
     private var api: ContentAPI
@@ -46,11 +46,12 @@ struct HomeView: View {
     private var mainView: some View {
         ZStack(alignment: .top){
             if !contents.isEmpty {
-                ContentsView(contents: $contents, selectedContent: $selectedContent)
+                ContentsView(contents: $contents, selectedContent: $selectedContent, selectionListId: $selectionListId)
             }
             HStack(alignment: .top){
                 MenuView(selectedMenu: $selectedMenu)
                 TrailingMenuView(searchText: $searchText)
+                    .saturation(selectionListId == -1 ? 1 : 0.29)
             }
         }
         .onAppear{
@@ -84,7 +85,10 @@ struct HomeView: View {
         ZStack(alignment: .top){
             if let selectedContent,
                selectedContent.flowType == .expanded {
-                ContentExpandedView(selectedContent: $selectedContent, contents: $contents)
+                ContentExpandedView(
+                    selectedContent: $selectedContent,
+                    contents: $contents,
+                    selectionListId: $selectionListId)
             }
         }
         .scaleEffect(eScene == .expandedContent ? 1 : 0)

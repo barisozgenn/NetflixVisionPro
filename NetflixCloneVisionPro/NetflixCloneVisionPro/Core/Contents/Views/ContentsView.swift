@@ -10,19 +10,23 @@ import SwiftUI
 struct ContentsView: View {
     @Binding var contents: [ContentModel]
     @Binding var selectedContent: SelectedContent?
-
+    @Binding var selectionListId: Int
+    
     @State private var scale = 0.0
     @State private var offsetY = 329.0
     @State private var offsetX = 329.0
     private let contentTitles: [String] = ["Trending Now","Top Picks For You", "Only on Netflix","Watch In One Weekend"]
     
-    @State private var selectionListId: Int = 0
+   
     
     var body: some View {
         ZStack{
             ScrollView(.vertical) {
                 ContentHeaderVideoPlayer(headerContent: contents[0], selectedContent: $selectedContent)
+                    .saturation(selectionListId == -1 ? 1 : 0.29)
+                    .opacity(selectionListId == -1 ? 1 : 0.729)
                 linearGradient
+                    .saturation(selectionListId == -1 ? 1 : 0.29)
                 VStack(alignment: .leading){
                     ForEach(Array(contentTitles.enumerated()), id: \.offset){ index, title in
                         
@@ -31,6 +35,7 @@ struct ContentsView: View {
                         
                         ListTitleView(title: title, animationDelay: .constant(3.729 + Double(index) * 0.29))
                         .offset(z: 1)
+                        .saturation(selectionListId == -1 ? 1 : 0.29)
                         
                         ContentListView(
                             selectedContent: $selectedContent,
@@ -73,5 +78,5 @@ struct ContentsView: View {
 }
 
 #Preview {
-    ContentsView(contents: .constant(ContentAPI().contents), selectedContent: .constant(nil))
+    ContentsView(contents: .constant(ContentAPI().contents), selectedContent: .constant(nil), selectionListId: .constant(-1))
 }

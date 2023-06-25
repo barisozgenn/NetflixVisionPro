@@ -12,7 +12,8 @@ struct ContentExpandedView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var selectedContent: SelectedContent?
     @Binding var contents: [ContentModel]
-
+    @Binding var selectionListId: Int
+    
     @State private var isFocused = true
     @State private var cast: String = ""
     @State private var genres: String = ""
@@ -83,7 +84,7 @@ struct ContentExpandedView: View {
                 .onAppear{
                     //headerVideoPlayer.play()
                     headerVideoPlayer.actionAtItemEnd = .none
-                    withAnimation(.smooth().delay(0.929)){
+                    withAnimation(.smooth().delay(0.729)){
                         saturation = 1
                     }
                 }
@@ -109,6 +110,7 @@ struct ContentExpandedView: View {
                     }
                     withAnimation(.smooth().delay(0.58)){
                         //dismiss()
+                        selectionListId = -1
                         selectedContent = nil
                     }
                 }, label: {
@@ -303,5 +305,5 @@ struct ContentExpandedView: View {
 }
 
 #Preview {
-    ContentExpandedView(selectedContent: .constant(nil), contents: .constant(ContentAPI().contents))
+    ContentExpandedView(selectedContent: .constant(nil), contents: .constant(ContentAPI().contents), selectionListId: .constant(-1))
 }
