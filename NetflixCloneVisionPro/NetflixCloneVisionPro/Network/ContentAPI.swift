@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import Observation
 
-@Observable final class ContentAPI {
+@Observable class ContentAPI {
     var contents: [ContentModel] = []
     private var cancellables = Set<AnyCancellable>()
     

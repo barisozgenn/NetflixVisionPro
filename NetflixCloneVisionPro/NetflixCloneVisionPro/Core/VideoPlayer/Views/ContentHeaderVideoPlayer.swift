@@ -11,8 +11,9 @@ import AVKit
 struct ContentHeaderVideoPlayer: View {
     @Environment(\.supportsMultipleWindows) private var supportsMultipleWindows
     @Environment(\.openWindow) var openWindow
-    
-    let selectedContent: ContentModel
+    var headerContent: ContentModel
+    @Binding var selectedContent: SelectedContent?
+
     
     @State private var isFocused = true
     @State private var isHeaderVideoSelected = false
@@ -86,10 +87,9 @@ struct ContentHeaderVideoPlayer: View {
                 // content buttons
                 HStack{
                     Button {
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "selectedContent"), object: selectedContent)
                         withAnimation(.smooth()){
                             isHeaderVideoSelected.toggle()
-                            openWindow(id: "main-player-window")
+                            selectedContent = SelectedContent(content: headerContent, flowType: .play)
                         }
                     } label: {
                         HStack{
@@ -113,23 +113,32 @@ struct ContentHeaderVideoPlayer: View {
                     .buttonStyle(.plain)
                     .disabled(!supportsMultipleWindows)
                     
-                    HStack{
-                        Image(systemName: "info.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: isFocused ? 24 : 20)
-                            .opacity(0.92)
-                            .foregroundStyle(.white)
-                        Text("More Info")
-                            .font(isFocused ? .title2 : .title3)
-                            .foregroundStyle(.white)
+                    Button {
+                        withAnimation(.smooth()){
+                            selectedContent = SelectedContent(content: headerContent, flowType: .expanded)
+                        }
+                    } label: {
+                        HStack{
+                            Image(systemName: "info.circle")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: isFocused ? 24 : 20)
+                                .opacity(0.92)
+                                .foregroundStyle(.white)
+                            Text("More Info")
+                                .font(isFocused ? .title2 : .title3)
+                                .foregroundStyle(.white)
+                        }
+                        .padding(.horizontal)
+                        .padding(.vertical,7)
+                        .background(.thinMaterial)
+                        .cornerRadius(7)
+                        .padding(.vertical, isFocused ? 20 : 0)
+                        .hoverEffect(.lift)
                     }
-                    .padding(.horizontal)
-                    .padding(.vertical,7)
-                    .background(.thinMaterial)
-                    .cornerRadius(7)
-                    .padding(.vertical, isFocused ? 20 : 0)
-                    .hoverEffect(.lift)
+                    .buttonStyle(.plain)
+                    .disabled(!supportsMultipleWindows)
+                   
                 }
             }
             .padding(.horizontal)
@@ -174,5 +183,5 @@ struct ContentHeaderVideoPlayer: View {
 
 
 #Preview {
-    ContentHeaderVideoPlayer(selectedContent: ContentAPI().contents[0])
+    ContentHeaderVideoPlayer(headerContent: ContentAPI().contents[0], selectedContent: .constant(nil))
 }

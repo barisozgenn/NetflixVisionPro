@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentCellView: View {
+    @Binding var selectedContent: SelectedContent?
+    
     let content: ContentModel
     let itemId: Int
     @Binding var selectedItem : Int
@@ -92,15 +94,20 @@ struct ContentCellView: View {
     }
     private var contentControlButtons: some View {
         HStack{
-            Image(systemName: "play.fill")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 20)
-                .padding(12)
-                .foregroundStyle(.black)
-                .background(.white)
-                .clipShape(Circle())
-            
+            Button {
+                withAnimation(.smooth()){
+                    selectedContent = SelectedContent(content: content, flowType: .play)
+                }
+            } label: {
+                Image(systemName: "play.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 20)
+                    .padding(12)
+                    .foregroundStyle(.black)
+                    .background(.white)
+                    .clipShape(Circle())
+            }
             Image(systemName: "plus")
                 .resizable()
                 .scaledToFit()
@@ -117,10 +124,9 @@ struct ContentCellView: View {
                 .background(Circle().fill(.thinMaterial).stroke(Color(.lightGray)))
             Spacer()
             Button {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "selectedContent"), object: content)
                 withAnimation(.smooth()){
-                    print("pressed open window")
-                    openWindow(id: "content-expanded-window")
+                    selectedContent = SelectedContent(content: content, flowType: .expanded)
+                    
                 }
             } label: {
                 Image(systemName: "chevron.down")
@@ -132,7 +138,7 @@ struct ContentCellView: View {
                     .background(Circle().fill(.thinMaterial).stroke(Color(.lightGray)))
             }
             .buttonStyle(.plain)
-
+            
         }
         .padding(.bottom, 14)
         .padding(.top, -14)
@@ -181,7 +187,7 @@ struct ContentCellView: View {
     }
 }
 /*
-
-#Preview {
-    ContentCellView(content: ContentAPI().contents[0], itemId: 0, selectedItem: .constant(0), selectionListId: .constant(0), listId: 0, animationDelay: 0, rectSize: .constant((229.0, 132.0)))
-}*/
+ 
+ #Preview {
+ ContentCellView(content: ContentAPI().contents[0], itemId: 0, selectedItem: .constant(0), selectionListId: .constant(0), listId: 0, animationDelay: 0, rectSize: .constant((229.0, 132.0)))
+ }*/

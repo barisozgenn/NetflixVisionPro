@@ -10,11 +10,11 @@ import SwiftData
 
 @main
 struct NetflixCloneVisionProApp: App {
-    let contentModel: ContentAPI = ContentAPI()
     
     var body: some Scene {
         WindowGroup {
-            HomeView(contentModel: contentModel)
+            HomeView()
+                
         }
         .windowStyle(.volumetric)
         

@@ -9,12 +9,10 @@ import SwiftUI
 
 struct MainPlayerView: View {
     @Environment(\.dismiss) var dismiss
+    @Binding var selectedContent: SelectedContent?
+
+    private let viewModel = PlayerViewModel()
     
-    private let viewModel : PlayerViewModel
-    
-    init() {
-        self.viewModel = PlayerViewModel()
-    }
     
     @State private var isControlPanelVisible = false
     @State private var isFullScreen = false
@@ -49,11 +47,6 @@ struct MainPlayerView: View {
             .onChange(of: viewModel.videoCurrentTime){
                 videoCurrentTime = viewModel.videoCurrentTime
             }
-            /*.onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification), perform: { _ in
-                NSApp.mainWindow?.standardWindowButton(.closeButton)?.isHidden = true
-                NSApp.mainWindow?.standardWindowButton(.miniaturizeButton)?.isHidden = true
-                NSApp.mainWindow?.standardWindowButton(.zoomButton)?.isHidden = true
-            })*/
     }
     private var controlPanelView: some View {
         VStack(spacing:20){
@@ -64,7 +57,10 @@ struct MainPlayerView: View {
                     .onTapGesture {
                         viewModel.videoPlayStop()
                         withAnimation(.spring()){isDissmiss.toggle()}
-                        withAnimation(.easeOut(duration: 3).delay(3)){dismiss()}
+                        withAnimation(.easeOut(duration: 3).delay(3)){
+                            selectedContent = nil
+                            dismiss()
+                        }
                     }
                 Spacer()
                 Image(systemName: "flag")
@@ -147,5 +143,5 @@ struct MainPlayerView: View {
 
 
 #Preview {
-    MainPlayerView()
+    MainPlayerView(selectedContent: .constant(nil))
 }

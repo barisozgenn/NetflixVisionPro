@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentListView: View {
-    
+    @Binding var selectedContent: SelectedContent?
     @Binding var selectionListId: Int
     let listId: Int
     let animationDelay: Double
@@ -24,7 +24,8 @@ struct ContentListView: View {
         ScrollView(.horizontal){
             ZStack{
                 ForEach(Array(contents.enumerated()), id: \.offset) {i, content in
-                    ContentCellView(content: content, itemId: i,
+                    ContentCellView(selectedContent: $selectedContent,
+                                    content: content, itemId: i,
                                     selectedItem: $selectedItem,
                                     selectionListId: $selectionListId, listId: listId,
                                     animationDelay: animationDelay + (Double(i) * 0.229),
@@ -49,5 +50,5 @@ struct ContentListView: View {
 
 #Preview {
     
-    ContentListView(selectionListId: .constant(0), listId: 0, animationDelay: 0, contents: ContentAPI().contents)
+    ContentListView(selectedContent: .constant(nil), selectionListId: .constant(0), listId: 0, animationDelay: 0, contents: ContentAPI().contents)
 }

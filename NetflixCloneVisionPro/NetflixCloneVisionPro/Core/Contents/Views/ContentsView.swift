@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentsView: View {
-    let contents: [ContentModel]
-    private var selectedHeaderContent: ContentModel
-    
+    @Binding var contents: [ContentModel]
+    @Binding var selectedContent: SelectedContent?
+
     @State private var scale = 0.0
     @State private var offsetY = 329.0
     @State private var offsetX = 329.0
@@ -18,21 +18,17 @@ struct ContentsView: View {
     
     @State private var selectionListId: Int = 0
     
-    init(contents: [ContentModel]) {
-        self.contents = contents
-        self.selectedHeaderContent = contents[0]
-    }
-    
     var body: some View {
         ZStack{
             ScrollView(.vertical) {
-                ContentHeaderVideoPlayer(selectedContent: selectedHeaderContent)
+                ContentHeaderVideoPlayer(headerContent: contents[0], selectedContent: $selectedContent)
                 linearGradient
                 VStack(alignment: .leading){
                     ForEach(Array(contentTitles.enumerated()), id: \.offset){ index, title in
                         ListTitleView(title: title, animationDelay: .constant(3.729 + Double(index) * 0.29))
                             .offset(z: 1)
                         ContentListView(
+                            selectedContent: $selectedContent,
                             selectionListId: $selectionListId,
                             listId: index,
                             animationDelay: 5.297 + Double(index) * 0.729,
@@ -72,5 +68,5 @@ struct ContentsView: View {
 }
 
 #Preview {
-    ContentsView(contents: ContentAPI().contents)
+    ContentsView(contents: .constant(ContentAPI().contents), selectedContent: .constant(nil))
 }
