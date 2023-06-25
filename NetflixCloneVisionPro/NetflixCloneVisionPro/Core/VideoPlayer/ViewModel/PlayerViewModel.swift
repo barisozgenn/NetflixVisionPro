@@ -18,6 +18,7 @@ import Observation
         URL(string: "https://v4.cdnpk.net/videvo_files/video/free/video0467/large_watermarked/_import_615579a59b5687.27049363_FPpreview.mp4")!,
         URL(string: "https://v4.cdnpk.net/videvo_files/video/free/video0471/large_watermarked/_import_618a60f421e389.11686272_FPpreview.mp4")!]
     
+    
     private var timeObserverToken: Any? = nil
     
     let videoPlayer : AVPlayer
@@ -59,7 +60,7 @@ import Observation
     }
     
     private func modifyVideoTime(_ seconds: Double) -> (String,String,String) {
-        let secondsInt = Int(seconds)
+        let secondsInt = seconds.toInt() ?? 0 //Int(seconds)
         let (h,m,s) = (secondsInt / 3600, (secondsInt % 3600) / 60, (secondsInt % 3600) % 60)
         let hh = h < 10 ? "0\(h)" : String(h)
         let mm = m < 10 ? "0\(m)" : String(m)

@@ -116,20 +116,23 @@ struct ContentCellView: View {
                 .foregroundStyle(.white)
                 .background(Circle().fill(.thinMaterial).stroke(Color(.lightGray)))
             Spacer()
-            Image(systemName: "chevron.down")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 12)
-                .padding(16)
-                .foregroundStyle(.white)
-                .background(Circle().fill(.thinMaterial).stroke(Color(.lightGray)))
-                .onTapGesture {
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "selectedContent"), object: content)
-                    withAnimation(.spring()){
-                        print("pressed open window")
-                        openWindow(id: "content-expanded-window")
-                    }
+            Button {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "selectedContent"), object: content)
+                withAnimation(.smooth()){
+                    print("pressed open window")
+                    openWindow(id: "content-expanded-window")
                 }
+            } label: {
+                Image(systemName: "chevron.down")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 12)
+                    .padding(16)
+                    .foregroundStyle(.white)
+                    .background(Circle().fill(.thinMaterial).stroke(Color(.lightGray)))
+            }
+            .buttonStyle(.plain)
+
         }
         .padding(.bottom, 14)
         .padding(.top, -14)

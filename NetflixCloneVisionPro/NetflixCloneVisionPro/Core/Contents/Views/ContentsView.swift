@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentsView: View {
+    let contents: [ContentModel]
+    private var selectedHeaderContent: ContentModel
+    
     @State private var scale = 0.0
     @State private var offsetY = 329.0
     @State private var offsetX = 329.0
@@ -15,13 +18,15 @@ struct ContentsView: View {
     
     @State private var selectionListId: Int = 0
     
-    // You can create seperated view model I did not want to do that
-    private let contentModel = ContentAPI()
+    init(contents: [ContentModel]) {
+        self.contents = contents
+        self.selectedHeaderContent = contents[0]
+    }
     
     var body: some View {
         ZStack{
             ScrollView(.vertical) {
-                ContentHeaderVideoPlayer()
+                ContentHeaderVideoPlayer(selectedContent: selectedHeaderContent)
                 linearGradient
                 VStack(alignment: .leading){
                     ForEach(Array(contentTitles.enumerated()), id: \.offset){ index, title in
@@ -31,7 +36,7 @@ struct ContentsView: View {
                             selectionListId: $selectionListId,
                             listId: index,
                             animationDelay: 5.297 + Double(index) * 0.729,
-                            contents: contentModel.contents.shuffled()
+                            contents: contents.shuffled()
                         )
                         .padding(.vertical, -75)
                     }
@@ -67,5 +72,5 @@ struct ContentsView: View {
 }
 
 #Preview {
-    ContentsView()
+    ContentsView(contents: ContentAPI().contents)
 }

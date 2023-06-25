@@ -10,15 +10,33 @@ import SwiftData
 
 @main
 struct NetflixCloneVisionProApp: App {
-   
+    let contentModel: ContentAPI = ContentAPI()
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(contentModel: contentModel)
         }
         .windowStyle(.volumetric)
         
         ImmersiveSpace(id: "ImmersiveSpace") {
             //ImmersiveView()
         }
+        /*WindowGroup("Content Info", id: "content-expanded-window") {
+            ContentExpandedView(contentModel: contentModel)
+                .preferredColorScheme(.dark)
+                .toolbarBackground(LinearGradient(
+                    colors: [
+                        Color(.black),
+                        Color(.darkGray)
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom))
+                
+        }
+        .windowStyle(.automatic)
+        
+        WindowGroup("Main Player", id: "main-player-window") {
+            MainPlayerView(viewModel: playerViewModel)
+        }*/
     }
 }

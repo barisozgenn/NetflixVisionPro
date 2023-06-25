@@ -10,7 +10,11 @@ import SwiftUI
 struct MainPlayerView: View {
     @Environment(\.dismiss) var dismiss
     
-    private let viewModel = PlayerViewModel()
+    private let viewModel : PlayerViewModel
+    
+    init() {
+        self.viewModel = PlayerViewModel()
+    }
     
     @State private var isControlPanelVisible = false
     @State private var isFullScreen = false

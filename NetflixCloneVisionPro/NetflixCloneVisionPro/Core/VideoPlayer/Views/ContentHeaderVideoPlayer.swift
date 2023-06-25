@@ -9,7 +9,11 @@ import SwiftUI
 import AVKit
 
 struct ContentHeaderVideoPlayer: View {
+    @Environment(\.supportsMultipleWindows) private var supportsMultipleWindows
     @Environment(\.openWindow) var openWindow
+    
+    let selectedContent: ContentModel
+    
     @State private var isFocused = true
     @State private var isHeaderVideoSelected = false
     @State private var headerVideoPlayer = AVPlayer(url: Bundle.main.url(forResource: "example-video", withExtension: "mp4")!)
@@ -81,33 +85,33 @@ struct ContentHeaderVideoPlayer: View {
                 }
                 // content buttons
                 HStack{
-                    HStack{
-                            Image(systemName: "play.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: isFocused ? 24 : 20)
-                                .opacity(0.92)
-                                .foregroundStyle(.black)
-                        
-                        Text("Play")
-                            .font(isFocused ? .title2 : .title3)
-                            .foregroundStyle(.black)
-                    }
-                    .padding(.horizontal)
-                    .padding(.vertical,7)
-                    .background(.white)
-                    .cornerRadius(7)
-                    .onTapGesture {
-                        withAnimation(.spring()){
+                    Button {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "selectedContent"), object: selectedContent)
+                        withAnimation(.smooth()){
                             isHeaderVideoSelected.toggle()
+                            openWindow(id: "main-player-window")
                         }
-                        //openWindow(id: "player-window")
+                    } label: {
+                        HStack{
+                                Image(systemName: "play.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: isFocused ? 24 : 20)
+                                    .opacity(0.92)
+                                    .foregroundStyle(.black)
+                            
+                            Text("Play")
+                                .font(isFocused ? .title2 : .title3)
+                                .foregroundStyle(.black)
+                        }
+                        .padding(.horizontal)
+                        .padding(.vertical,7)
+                        .background(.white)
+                        .cornerRadius(7)
+                        .hoverEffect(.lift)
                     }
-                    .sheet(isPresented: $isHeaderVideoSelected) {
-                        MainPlayerView()
-                            .presentationDragIndicator(.visible)
-                    }
-                    .hoverEffect(.lift)
+                    .buttonStyle(.plain)
+                    .disabled(!supportsMultipleWindows)
                     
                     HStack{
                         Image(systemName: "info.circle")
@@ -170,5 +174,5 @@ struct ContentHeaderVideoPlayer: View {
 
 
 #Preview {
-    ContentHeaderVideoPlayer()
+    ContentHeaderVideoPlayer(selectedContent: ContentAPI().contents[0])
 }
