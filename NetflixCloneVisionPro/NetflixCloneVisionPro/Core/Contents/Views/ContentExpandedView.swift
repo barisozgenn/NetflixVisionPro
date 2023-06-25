@@ -6,52 +6,121 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct ContentExpandedView: View {
     @Environment(\.dismiss) var dismiss
-    let contentModel : ContentAPI
-    
+    @Binding var selectedContent: SelectedContent?
+    @Binding var contents: [ContentModel]
+
     @State private var isFocused = true
-    @State private var isHeaderVideoSelected = false
     @State private var cast: String = ""
     @State private var genres: String = ""
     @State private var thisIs: String = ""
     @State private var image: UIImage = UIImage(systemName: "photo.artframe")!
-
+    @State private var saturation = 0.0
+    @State private var isHeaderVideoSelected = false
+    @State private var headerVideoPlayer = AVPlayer()
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView{
+            VStack{
+                ZStack(alignment: .bottom){
+                    videoPlayerView
+                    closeMarkView
+                }
+                linearGradient
+                contentButtonsView
+                contentDetailView
+                listView
+                Spacer()
+            }
+        }
+        .background(.black.opacity(0.729))
+        .saturation(saturation)
+        .frame(width: 629)
     }
- /*   private var videoPlayerView : some View {
+    private var videoPlayerView : some View {
         ZStack{
-            PlayerViewRepresentable(videoPlayer: viewModel.videoPlayer)
-                .frame(maxWidth: viewModel.videoFrame.width, maxHeight: viewModel.videoFrame.height)
-                .disabled(true)
-                .background(.purple)
             Image(uiImage: image)
                 .resizable()
                 .scaledToFill()
-                .frame(maxWidth: viewModel.videoFrame.width, maxHeight: viewModel.videoFrame.height)
-                .onAppear{setupHeader()}
-                .opacity(viewModel.imageOpacity)
-                .onChange(of: viewModel.content) { _ in setupHeader()}
+                .frame(maxWidth: .infinity, maxHeight: 220)
+                .onAppear{
+                    if let content = selectedContent?.content {
+                        image = content.imageBase64.convertBase64ToNSImage()
+                        
+                        // here is for demo video showcase
+                        if content.id == "1bar" {
+                            headerVideoPlayer.replaceCurrentItem(with: AVPlayerItem(url: Bundle.main.url(forResource: "example-mehmed", withExtension: "mp4")!))
+                           
+                        }else if content.id == "2bar" {
+                            headerVideoPlayer.replaceCurrentItem(with: AVPlayerItem(url: Bundle.main.url(forResource: "example-bill", withExtension: "mp4")!))
+                        }else {
+                            headerVideoPlayer.replaceCurrentItem(with: AVPlayerItem(url: Bundle.main.url(forResource: "example-video", withExtension: "mp4")!))
+                        }
+                    }
+                }
+                .onTapGesture {
+                    withAnimation(.smooth()){
+                        isHeaderVideoSelected.toggle()
+                        headerVideoPlayer.play()
+                        headerVideoPlayer.isMuted = false
+                    }
+                }
+            PlayerViewRepresentable(videoPlayer: headerVideoPlayer)
+                .frame(width: 629, height: 492)
+                .disabled(true)
+                .background(.purple)
+                .hoverEffect(.lift)
+                .opacity(isHeaderVideoSelected ? 1 :0)
+                .onAppear{
+                    //headerVideoPlayer.play()
+                    headerVideoPlayer.actionAtItemEnd = .none
+                    withAnimation(.smooth().delay(0.929)){
+                        saturation = 1
+                    }
+                }
+                .onTapGesture {
+                    withAnimation(.smooth()){
+                        headerVideoPlayer.pause()
+                        isHeaderVideoSelected.toggle()
+                        headerVideoPlayer.isMuted = true
+                    }
+                }
         }
+        .frame(height: 292)
+        .clipped()
         
     }
     private var closeMarkView: some View{
         VStack{
             HStack{
                 Spacer()
-                Image(systemName: "x.circle.fill")
-                    .resizable()
-                    .foregroundColor(Color(.darkGray))
-                    .background(.white)
-                    .clipShape(Circle())
-                    .withPlayerButtonModifier(frameHeight: 27)
-                    .onTapGesture { withAnimation(.spring()){
+                Button(action: {
+                    withAnimation(.smooth()){
+                        saturation = 0
+                    }
+                    withAnimation(.smooth().delay(0.58)){
                         //dismiss()
-                        NSApplication.shared.windows.first(where: {$0.identifier?.rawValue ?? "" == "content-expanded-window"})?.performClose(nil)
-                        viewModel.videoPlayer.pause()
-                    }}
+                        selectedContent = nil
+                    }
+                }, label: {
+                    Image(systemName: "x.circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundStyle(.thinMaterial)
+                        .frame(width: 48)
+                        .background(.white)
+                        .clipShape(Circle())
+                })
+                .buttonStyle(.plain)
             }
             .padding()
             Spacer()
@@ -60,13 +129,13 @@ struct ContentExpandedView: View {
     private var contentDetailView:some View{
         // content description
         HStack{
-            if let content = viewModel.content {
+            if let content = selectedContent?.content {
                 VStack(alignment: .leading){
                     HStack{
                         Text("\(content.match)% Match")
-                            .foregroundColor(.green)
+                            .foregroundStyle(.green)
                             .fontWeight(.bold)
-                            .font(.title3)
+                            .font(.headline)
                         Text(content.maturityRatings.first ?? "7+")
                             .padding(2)
                             .padding(.horizontal)
@@ -82,18 +151,19 @@ struct ContentExpandedView: View {
                     }
                     Text(content.episodes.first?.episodeDescription ?? "baris lorem ipsum")
                         .font(.headline)
-                        .foregroundColor(.white)
+                        .foregroundStyle(.white)
                 }
                 .navigationTitle(content.name)
             }
             Spacer()
-            if let content = viewModel.content{
+            if let content = selectedContent?.content{
                 VStack(alignment: .leading){
                     // cast
                     HStack(alignment: .top){
                         Text("Cast:")
-                            .foregroundColor(.gray)
+                            .foregroundStyle(.white.opacity(0.92))
                         Text(cast)
+                            .foregroundStyle(.white)
                             .onAppear{
                                 var items = ""
                                 content.artists.forEach { item in
@@ -105,8 +175,9 @@ struct ContentExpandedView: View {
                     // genres
                     HStack(alignment: .top){
                         Text("Genres:")
-                            .foregroundColor(.gray)
+                            .foregroundStyle(.white.opacity(0.92))
                         Text(genres)
+                            .foregroundStyle(.white)
                             .onAppear{
                                 var items = ""
                                 content.genres.forEach { item in
@@ -118,8 +189,9 @@ struct ContentExpandedView: View {
                     // this movie is
                     HStack(alignment: .top){
                         Text("This movie is:")
-                            .foregroundColor(.gray)
+                            .foregroundStyle(.white.opacity(0.92))
                         Text(thisIs)
+                            .foregroundStyle(.white)
                             .onAppear{
                                 var items = ""
                                 content.categories.forEach { item in
@@ -128,11 +200,13 @@ struct ContentExpandedView: View {
                                 thisIs = String(items.dropLast(2))
                             }
                     }
-                }}
+                }
+            }
         }
-        .font(.headline)
-        .foregroundColor(.white)
+        .font(.caption)
+        .foregroundStyle(.white)
         .padding()
+        .shadow(color: .black, radius: 3, x:0, y:2)
     }
     private var contentButtonsView: some View{
         HStack{
@@ -145,11 +219,11 @@ struct ContentExpandedView: View {
                             .scaledToFit()
                             .frame(height: isFocused ? 24 : 20)
                             .opacity(0.92)
-                            .foregroundColor(.black)
+                            .foregroundStyle(.black)
                         
                         Text("Play")
                             .font(isFocused ? .title2 : .title3)
-                            .foregroundColor(.black)
+                            .foregroundStyle(.black)
                     }
                     .padding(.horizontal)
                     .padding(.vertical,7)
@@ -159,13 +233,10 @@ struct ContentExpandedView: View {
                         withAnimation(.spring()){
                             isHeaderVideoSelected.toggle()
                             //dismiss()
-                            NSApplication.shared.windows.first(where: {$0.identifier?.rawValue ?? "" == "content-expanded-window"})?.performClose(nil)
-                            viewModel.videoPlayer.pause()
+                            if let content = selectedContent?.content {
+                                selectedContent = SelectedContent(content: content, flowType: .play)
+                            }
                         }
-                    }
-                    .sheet(isPresented: $isHeaderVideoSelected) {
-                        PlayerView()
-                            .presentationDragIndicator(.visible)
                     }
                     Image(systemName: "plus")
                         .resizable()
@@ -208,30 +279,29 @@ struct ContentExpandedView: View {
             
         }
         .padding(.horizontal)
-        .padding(.bottom, 29)
+        .padding(.top, -58)
     }
     private var listView: some View{
         VStack(alignment:.leading){
             Text("More Like This")
-                .foregroundColor(.white)
+                .foregroundStyle(.white)
                 .font(.title)
                 .padding(.horizontal)
             LazyVGrid(columns: columns, spacing: 14) {
-                ForEach(viewModel.contents, id: \.self) { item in
+                ForEach(contents, id: \.id) { item in
                     ContentExpandedCell(content: item)
                 }
             }
             .padding(.horizontal)
         }
     }
-    func setupHeader(){
-        if let content = viewModel.content {
-            image = content.imageBase64.convertBase64ToNSImage()
-        }
-        withAnimation(.easeIn(duration: 2).delay(1)){viewModel.imageOpacity=0}
-    }*/
+    private var linearGradient: some View {
+        LinearGradient(colors: [.red, .red.opacity(0.5), .red.opacity(0)], startPoint: .top, endPoint: .bottom)
+            .frame(height: 70)
+    }
+    
 }
 
 #Preview {
-    ContentExpandedView(contentModel: ContentAPI())
+    ContentExpandedView(selectedContent: .constant(nil), contents: .constant(ContentAPI().contents))
 }

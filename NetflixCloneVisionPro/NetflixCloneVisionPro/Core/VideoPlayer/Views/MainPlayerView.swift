@@ -73,7 +73,7 @@ struct MainPlayerView: View {
             HStack{
                 Slider(value: $videoCurrentTime, in: 0...viewModel.videoTotalSeconds)
                     .tint(.red)
-                    .foregroundColor(.red)
+                    .foregroundStyle(.red)
                 Text("\(viewModel.videoDuration)")
                     .font(.headline)
             }
@@ -126,7 +126,7 @@ struct MainPlayerView: View {
         }
         .scaleEffect(y: isControlPanelVisible ? 1 : 1.29)
         .opacity(isControlPanelVisible ? 1 : 0)
-        .foregroundColor(.white)
+        .foregroundStyle(.white)
         .padding()
         .background(content: {
             LinearGradient(colors: [.black.opacity(0.92),

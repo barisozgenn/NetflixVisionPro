@@ -25,14 +25,19 @@ struct ContentsView: View {
                 linearGradient
                 VStack(alignment: .leading){
                     ForEach(Array(contentTitles.enumerated()), id: \.offset){ index, title in
+                        
+                        let contentIteration = index * 4
+                        let titleContents: [ContentModel] = Array(contents[contentIteration..<contentIteration+4])
+                        
                         ListTitleView(title: title, animationDelay: .constant(3.729 + Double(index) * 0.29))
-                            .offset(z: 1)
+                        .offset(z: 1)
+                        
                         ContentListView(
                             selectedContent: $selectedContent,
                             selectionListId: $selectionListId,
                             listId: index,
                             animationDelay: 5.297 + Double(index) * 0.729,
-                            contents: contents.shuffled()
+                            contents: titleContents
                         )
                         .padding(.vertical, -75)
                     }

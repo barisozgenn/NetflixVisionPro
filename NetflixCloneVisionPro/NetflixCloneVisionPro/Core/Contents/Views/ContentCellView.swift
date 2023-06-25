@@ -108,6 +108,8 @@ struct ContentCellView: View {
                     .background(.white)
                     .clipShape(Circle())
             }
+            .buttonStyle(.plain)
+            
             Image(systemName: "plus")
                 .resizable()
                 .scaledToFit()
@@ -126,7 +128,6 @@ struct ContentCellView: View {
             Button {
                 withAnimation(.smooth()){
                     selectedContent = SelectedContent(content: content, flowType: .expanded)
-                    
                 }
             } label: {
                 Image(systemName: "chevron.down")
