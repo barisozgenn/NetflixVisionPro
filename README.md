@@ -1,9 +1,9 @@
 # NetflixVisionPro
 
 
-Welcome to the future of entertainment with Vision Pro, the pioneering prototype app developed on Apple's visionary platform, visionOS. As an individual SwiftUI developer, I am thrilled to present this immersive Netflix clone exclusively designed for Vision Pro.
+Welcome to the future of entertainment with Vision Pro, the pioneering prototype app developed on Apple's visionary platform, visionOS. As an individual SwiftUI developer, I am thrilled to present this immersive Netflix clone exclusively designed for Vision Pro. Harnessing the power of the newly announced (just 5 days ago) visionOS SDK, this app showcases the cutting-edge possibilities of mixed reality technology.
 
-Immerse yourself in a mesmerizing world of captivating space scenes, volumetric experiences, and breathtaking visual effects, powered by the latest advancements in SwiftUI. With the enhanced AVKit representable video player, indulge in your favorite shows and movies like never before, redefining your viewing experience.
+Immerse yourself in a mesmerizing world of captivating space scenes, volumetric experiences, and breathtaking visual effects, powered by the latest advancements in SwiftUI with the enhanced AVKit representable video player.
 
 ### YouTube Video
 <a href="https://youtu.be/ofdWweoiqds" target="_blank">
