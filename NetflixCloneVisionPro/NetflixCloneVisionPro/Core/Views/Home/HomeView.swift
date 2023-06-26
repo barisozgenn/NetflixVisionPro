@@ -46,7 +46,7 @@ struct HomeView: View {
     private var mainView: some View {
         ZStack(alignment: .top){
             if !contents.isEmpty {
-                ContentsView(contents: $contents, selectedContent: $selectedContent, selectionListId: $selectionListId)
+                ContentsView(contents: $contents, selectedContent: $selectedContent, selectionListId: $selectionListId, selectedMenu: $selectedMenu)
             }
             HStack(alignment: .top){
                 MenuView(selectedMenu: $selectedMenu)
@@ -79,7 +79,7 @@ struct HomeView: View {
         }
         .scaleEffect(eScene == .mainPlayer ? 1 : 0)
         .offset(x: eScene == .mainPlayer ? 0 : 229,
-                y: eScene == .mainPlayer ? 0 : -292)
+                y: eScene == .mainPlayer ? 229 : 692)
     }
     private var expandedView: some View {
         ZStack(alignment: .top){

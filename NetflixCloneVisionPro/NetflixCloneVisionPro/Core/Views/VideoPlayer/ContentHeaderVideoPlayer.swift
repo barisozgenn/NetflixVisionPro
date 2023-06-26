@@ -13,7 +13,7 @@ struct ContentHeaderVideoPlayer: View {
     @Environment(\.openWindow) var openWindow
     var headerContent: ContentModel
     @Binding var selectedContent: SelectedContent?
-
+    @Binding var selectedMenu: EMenu
     
     @State private var isFocused = true
     @State private var isHeaderVideoSelected = false
@@ -49,6 +49,15 @@ struct ContentHeaderVideoPlayer: View {
             .onTapGesture {
                 headerVideoPlayer.play()
             }
+            .onChange(of: selectedMenu) { oldSM, newSM in
+                withAnimation(.smooth()){
+                    if newSM == .movies {
+                        headerVideoPlayer.replaceCurrentItem(with: AVPlayerItem(url: Bundle.main.url(forResource: "example-avatar", withExtension: "mp4")!))
+                    }else {
+                        headerVideoPlayer.replaceCurrentItem(with: AVPlayerItem(url: Bundle.main.url(forResource: "example-video", withExtension: "mp4")!))
+                    }
+                }
+            }
     }
     private var infoView: some View {
         HStack{
@@ -60,14 +69,14 @@ struct ContentHeaderVideoPlayer: View {
                         .scaledToFit()
                         .frame(height: isFocused ? 24 : 36)
                         .opacity(0.92)
-                    Text("SERIES")
+                    Text(selectedMenu == .movies ? "MOVIES" : "SERIES")
                         .font(isFocused ? .headline : .title3)
                         .foregroundStyle(.thinMaterial)
                     
                 }
                 // content logo and description
                 VStack(alignment: .leading){
-                    Image("example-logo")
+                    Image(selectedMenu == .movies ? "avatar-logo" : "example-logo")
                         .resizable()
                         .scaledToFit()
                         .frame(height: isFocused ? 58 : 72)
@@ -76,7 +85,7 @@ struct ContentHeaderVideoPlayer: View {
                         .padding(.top, 7)
                     
                     
-                    Text("Arnold revisits his upbringing in post-war Austria, the moment that sparked his seismic rise to bodybuilding fame and his pursuit of the American dream.")
+                    Text(selectedMenu == .movies ? "Avatar takes us to the amazing world of Pandora, where a man embarks on an epic adventure, ultimately fighting to save both the people he loves and the place he now calls home." : "Arnold revisits his upbringing in post-war Austria, the moment that sparked his seismic rise to bodybuilding fame and his pursuit of the American dream.")
                         .font(.headline)
                         .foregroundStyle(.white)
                         .opacity(isFocused ? 1 : 0)
@@ -93,12 +102,12 @@ struct ContentHeaderVideoPlayer: View {
                         }
                     } label: {
                         HStack{
-                                Image(systemName: "play.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: isFocused ? 24 : 20)
-                                    .opacity(0.92)
-                                    .foregroundStyle(.black)
+                            Image(systemName: "play.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: isFocused ? 24 : 20)
+                                .opacity(0.92)
+                                .foregroundStyle(.black)
                             
                             Text("Play")
                                 .font(isFocused ? .title2 : .title3)
@@ -138,7 +147,7 @@ struct ContentHeaderVideoPlayer: View {
                     }
                     .buttonStyle(.plain)
                     .disabled(!supportsMultipleWindows)
-                   
+                    
                 }
             }
             .padding(.horizontal)
@@ -146,7 +155,7 @@ struct ContentHeaderVideoPlayer: View {
             HStack{
                 // volume
                 Image(systemName: isVideoMuted ? "speaker.slash" : "speaker.wave.3")
-                    
+                
                     .resizable()
                     .scaledToFit()
                     .frame(height: 20)
@@ -158,7 +167,7 @@ struct ContentHeaderVideoPlayer: View {
                             isVideoMuted.toggle()
                             headerVideoPlayer.isMuted = isVideoMuted
                         }
-                       
+                        
                     }
                 HStack{
                     Rectangle()
@@ -183,5 +192,5 @@ struct ContentHeaderVideoPlayer: View {
 
 
 #Preview {
-    ContentHeaderVideoPlayer(headerContent: ContentAPI().contents[0], selectedContent: .constant(nil))
+    ContentHeaderVideoPlayer(headerContent: ContentAPI().contents[0], selectedContent: .constant(nil), selectedMenu: .constant(.home))
 }

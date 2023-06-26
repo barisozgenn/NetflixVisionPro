@@ -215,31 +215,34 @@ struct ContentExpandedView: View {
             VStack(alignment: .leading,spacing: 0){
                 // content buttons
                 HStack{
-                    HStack{
-                        Image(systemName: "play.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: isFocused ? 24 : 20)
-                            .opacity(0.92)
-                            .foregroundStyle(.black)
-                        
-                        Text("Play")
-                            .font(isFocused ? .title2 : .title3)
-                            .foregroundStyle(.black)
-                    }
-                    .padding(.horizontal)
-                    .padding(.vertical,7)
-                    .background(.white)
-                    .cornerRadius(7)
-                    .onTapGesture {
-                        withAnimation(.spring()){
-                            isHeaderVideoSelected.toggle()
-                            //dismiss()
-                            if let content = selectedContent?.content {
-                                selectedContent = SelectedContent(content: content, flowType: .play)
+                    Button {
+                        withAnimation(.smooth()){
+                                isHeaderVideoSelected.toggle()
+                                //dismiss()
+                                if let content = selectedContent?.content {
+                                    headerVideoPlayer.pause()
+                                    selectedContent = SelectedContent(content: content, flowType: .play)
+                                }
                             }
+                    } label: {
+                        HStack{
+                            Image(systemName: "play.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: isFocused ? 24 : 20)
+                                .opacity(0.92)
+                                .foregroundStyle(.black)
+                            
+                            Text("Play")
+                                .font(isFocused ? .title2 : .title3)
+                                .foregroundStyle(.black)
                         }
+                        .padding(.horizontal)
+                        .padding(.vertical,7)
+                        .background(.white)
+                        .cornerRadius(7)
                     }
+                    .buttonStyle(.plain)
                     Image(systemName: "plus")
                         .resizable()
                         .scaledToFit()
@@ -301,7 +304,6 @@ struct ContentExpandedView: View {
         LinearGradient(colors: [.red, .red.opacity(0.5), .red.opacity(0)], startPoint: .top, endPoint: .bottom)
             .frame(height: 70)
     }
-    
 }
 
 #Preview {

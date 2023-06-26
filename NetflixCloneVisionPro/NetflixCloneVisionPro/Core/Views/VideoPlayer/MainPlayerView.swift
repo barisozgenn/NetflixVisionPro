@@ -52,6 +52,9 @@ struct MainPlayerView: View {
         VStack(spacing:20){
             HStack{
                 Image(systemName: "arrow.left")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 29)
                     .scaledToFit()
                     .frame(height: 24)
                     .onTapGesture {
@@ -66,7 +69,7 @@ struct MainPlayerView: View {
                 Image(systemName: "flag")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 24)
+                    .frame(height: 29)
             }
             .padding(.horizontal)
             Spacer()
@@ -81,14 +84,26 @@ struct MainPlayerView: View {
             HStack{
                 HStack(spacing:29){
                     Image(systemName: viewModel.videIsPlaying ? "pause.fill" : "play.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 29)
                         .onTapGesture { viewModel.videoPlayStop() }
                     Image(systemName: "gobackward.10")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 29)
                         .onTapGesture { viewModel.videoChangeTime(isForward: false) }
                     Image(systemName: "goforward.10")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 29)
                         .onTapGesture { viewModel.videoChangeTime() }
                     Image(systemName: videoVolume > 0.8  ? "speaker.wave.3.fill" :
                             videoVolume > 0.5  ? "speaker.wave.2.fill" :
                             videoVolume > 0.1  ? "speaker.wave.1.fill" : "speaker.slash.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 29)
                     .onTapGesture { withAnimation(.spring()){isVolumeHover.toggle()} }
                     VStack{
                         Slider(value: $videoVolume, in: 0...1)
@@ -104,15 +119,30 @@ struct MainPlayerView: View {
                     .padding(.top, -129)
                     .opacity(isVolumeHover ? 1 : 0)
                 }
-                Text("Content title: Episode title")
+                Text(selectedContent?.content.name ?? "Content title: Episode title")
                     .font(.title2)
                     .frame(maxWidth: .infinity)
                 HStack(spacing:29){
                     Image(systemName: "forward.end")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 29)
                     Image(systemName: "rectangle.on.rectangle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 29)
                     Image(systemName: "text.bubble")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 29)
                     Image(systemName: "stopwatch")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 29)
                     Image(systemName: "rectangle.dashed")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 29)
                         .onTapGesture {
                             withAnimation(.spring()){
                                 viewModel.isFrameFullScreen.toggle()
