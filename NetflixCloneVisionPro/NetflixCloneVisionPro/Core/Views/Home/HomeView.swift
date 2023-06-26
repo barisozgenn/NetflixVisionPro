@@ -26,7 +26,10 @@ struct HomeView: View {
         ZStack{
             mainView
             expandedView
-            playerView
+            if let selectedContent,
+               selectedContent.flowType == .play {
+                    playerView
+                }
         }
         .onChange(of: selectedContent == nil) { oldV, newV in
             withAnimation(.smooth()){
@@ -57,18 +60,18 @@ struct HomeView: View {
         .onAppear{
             contents = api.contents
         }
-        .scaleEffect(eScene != .contentsHome ? 0.29 : 1)
-        .offset(x: eScene != .contentsHome ? -392 : 0,
-                y: eScene != .contentsHome ? -358 : 0)
+        .scaleEffect(eScene == .contentsHome ? 1 : eScene == .mainPlayer ? 0 : 0.29)
+        .offset(x: eScene == .contentsHome ? 0 : -392,
+                y: eScene == .contentsHome ? 0 : -358)
         .opacity(eScene == .contentsHome ? 1 : eScene == .expandedContent ? 0.729 : 0)
         .saturation(eScene == .contentsHome ? 1 : 0)
         /*
          // Low performance dedected
          .rotation3DEffect(
-            Rotation3D(
-                angle: .degrees(eScene != .contentsHome ? 7 : 0),
-                axis: .y)
-        )*/
+         Rotation3D(
+         angle: .degrees(eScene != .contentsHome ? 7 : 0),
+         axis: .y)
+         )*/
     }
     private var playerView: some View {
         ZStack(alignment: .top){
@@ -78,22 +81,22 @@ struct HomeView: View {
             }
         }
         .scaleEffect(eScene == .mainPlayer ? 1 : 0)
-        .offset(x: eScene == .mainPlayer ? 0 : 229,
-                y: eScene == .mainPlayer ? 229 : 692)
+         .offset(x: eScene == .mainPlayer ? 0 : 229,
+         y: eScene == .mainPlayer ? 229 : 692)
     }
     private var expandedView: some View {
         ZStack(alignment: .top){
-            if let selectedContent,
-               selectedContent.flowType == .expanded {
+            if let selectedContent{
                 ContentExpandedView(
                     selectedContent: $selectedContent,
                     contents: $contents,
                     selectionListId: $selectionListId)
+                .opacity(selectedContent.flowType == .play ? 0 : 1)
             }
         }
+        .opacity(eScene == .expandedContent ? 1 : 0)
         .scaleEffect(eScene == .expandedContent ? 1 : 0)
         .offset(x: eScene == .expandedContent ? 92 : 229)
-        .opacity(eScene == .expandedContent ? 1 : 0)
     }
 }
 

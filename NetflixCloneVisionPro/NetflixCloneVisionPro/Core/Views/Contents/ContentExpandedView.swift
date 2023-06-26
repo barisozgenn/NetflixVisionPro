@@ -108,7 +108,7 @@ struct ContentExpandedView: View {
                     withAnimation(.smooth()){
                         saturation = 0
                     }
-                    withAnimation(.smooth().delay(0.58)){
+                    withAnimation(.smooth().delay(0.29)){
                         //dismiss()
                         selectionListId = -1
                         selectedContent = nil
@@ -217,7 +217,7 @@ struct ContentExpandedView: View {
                 HStack{
                     Button {
                         withAnimation(.smooth()){
-                                isHeaderVideoSelected.toggle()
+                                isHeaderVideoSelected = false
                                 //dismiss()
                                 if let content = selectedContent?.content {
                                     headerVideoPlayer.pause()

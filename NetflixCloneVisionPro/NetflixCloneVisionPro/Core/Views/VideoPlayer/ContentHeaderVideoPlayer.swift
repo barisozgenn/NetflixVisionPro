@@ -97,7 +97,7 @@ struct ContentHeaderVideoPlayer: View {
                 HStack{
                     Button {
                         withAnimation(.smooth()){
-                            isHeaderVideoSelected.toggle()
+                            isHeaderVideoSelected = false
                             selectedContent = SelectedContent(content: headerContent, flowType: .play)
                         }
                     } label: {

@@ -62,7 +62,7 @@ struct MainPlayerView: View {
                         withAnimation(.spring()){isDissmiss.toggle()}
                         withAnimation(.easeOut(duration: 3).delay(3)){
                             selectedContent = nil
-                            dismiss()
+                            //dismiss()
                         }
                     }
                 Spacer()
